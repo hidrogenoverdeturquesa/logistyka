@@ -37,6 +37,11 @@
     color: #0f766e;
 }
 
+.s-contact__email {
+    font-size: clamp(4.8rem, 7vw, 9.2rem);
+    line-height: 1.1;
+}
+
 .s-contact__email a {
     word-break: normal;
 }
@@ -49,5 +54,9 @@
     .s-hero__content-about p {
         font-size: 2.2rem;
         line-height: 1.35;
+    }
+
+    .s-contact__email {
+        font-size: 3.8rem;
     }
 }
