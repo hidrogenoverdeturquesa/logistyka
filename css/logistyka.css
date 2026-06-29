@@ -46,6 +46,12 @@
     word-break: normal;
 }
 
+.ss-copyright span:last-child,
+.ss-copyright span:last-child a {
+    color: rgba(255, 255, 255, 0.28);
+    font-size: 1.1rem;
+}
+
 @media screen and (max-width: 600px) {
     .logistyka-logo {
         font-size: 1.5rem;
