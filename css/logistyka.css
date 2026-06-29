@@ -22,7 +22,8 @@
 
 .s-hero__bg {
     background-image: linear-gradient(90deg, rgba(5, 18, 32, 0.86), rgba(7, 44, 49, 0.58)), url("../images/Portada.jpg");
-    background-position: center;
+    background-position: center top;
+    background-size: 100% auto;
 }
 
 .s-hero__content h1 {
@@ -49,5 +50,10 @@
     .s-hero__content-about p {
         font-size: 2.2rem;
         line-height: 1.35;
+    }
+
+    .s-hero__bg {
+        background-position: center;
+        background-size: cover;
     }
 }
