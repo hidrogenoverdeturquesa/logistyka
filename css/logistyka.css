@@ -21,52 +21,17 @@
 }
 
 .s-hero__bg {
-    background-image: linear-gradient(90deg, rgba(5, 12, 18, 0.9) 0%, rgba(5, 12, 18, 0.62) 42%, rgba(5, 12, 18, 0.42) 100%), url("../images/Portada.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-.s-hero__content {
-    max-width: 1500px;
-    padding-bottom: 12vh;
-}
-
-.s-hero__content .column {
-    width: 100%;
+    background-image: linear-gradient(90deg, rgba(5, 18, 32, 0.86), rgba(7, 44, 49, 0.58)), url("../images/Portada.jpg");
+    background-position: center top;
+    background-size: 100% auto;
 }
 
 .s-hero__content h1 {
-    color: #e70846;
-    font-size: clamp(10rem, 17vw, 28rem);
-    font-weight: 800;
     letter-spacing: 0;
-    line-height: .82;
-    margin-bottom: 2.4rem;
-    text-align: center;
-}
-
-.s-hero__content h1::before {
-    display: none;
-}
-
-.s-hero__content-about {
-    color: #ffffff;
-    font-size: clamp(2.4rem, 3vw, 5rem);
-    line-height: 1.45;
-    padding-left: 22%;
-}
-
-.s-hero__content-about::before {
-    display: none;
 }
 
 .s-hero__content-about p {
-    max-width: 920px;
-    margin-bottom: var(--vspace-1_5);
-}
-
-.s-hero__video-link {
-    background-color: #e70846;
+    max-width: 940px;
 }
 
 .folio-item__cat {
@@ -87,16 +52,8 @@
         line-height: 1.35;
     }
 
-    .s-hero__content {
-        padding-bottom: 14vh;
-    }
-
-    .s-hero__content h1 {
-        font-size: 20vw;
-        text-align: left;
-    }
-
-    .s-hero__content-about {
-        padding-left: 0;
+    .s-hero__bg {
+        background-position: center;
+        background-size: cover;
     }
 }
