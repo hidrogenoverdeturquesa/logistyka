@@ -26,22 +26,30 @@
 
         $("html").addClass('ss-preload');
 
-        $WIN.on('load', function() {
+        let pageRevealed = false;
+
+        const revealPage = function() {
+            if (pageRevealed) return;
+            pageRevealed = true;
 
             // force page scroll position to top at page refresh
             $('html, body').animate({ scrollTop: 0 }, 'normal');
 
-            // will first fade out the loading animation 
+            // fade out the skeleton and reveal the website
             $("#loader").fadeOut("slow", function() {
-                // will fade out the whole DIV that covers the website.
                 $("#preloader").delay(300).fadeOut("slow");
-            }); 
-            
-            // for hero content animations 
+            });
+
             $("html").removeClass('ss-preload');
             $("html").addClass('ss-loaded');
+        };
 
+        $WIN.on('load', function() {
+            revealPage();
         });
+
+        // Do not block navigation when an external resource is slow.
+        window.setTimeout(revealPage, 2500);
     };
 
 
