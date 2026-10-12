@@ -18,13 +18,15 @@ adicionales. La transición de entrada conserva los 0,3 segundos de Flare/Lity.
 
 ### Destinos y estado funcional (12 de octubre de 2026)
 
+- **Contratar nuestros servicios:** `#contact`, contacto comercial existente
+  para solicitar una propuesta empresarial.
 - **Gestionar una devolución:** `#contact`, sección existente de la página.
   Ofrece atención asistida mediante los canales ya publicados. No se ha
   encontrado un formulario público de solicitud ni seguimiento autónomo.
-- **Ingresar al portal de gestión:** deshabilitado con explicación visible,
+- **Ingresar a la plataforma:** deshabilitado con explicación visible,
   a la espera de verificar la URL de producción que aportará el responsable.
   No se enlazan módulos privados ni el prototipo local.
-- **Explorar nuestra página / cerrar / Escape:** cierran el diálogo y conservan
+- **Explorar Logistyka / cerrar / Escape:** cierran el diálogo y conservan
   la página institucional.
 
 La aplicación local `HVT_LOGISTYKA/01_APP/logistyka-app` contiene módulos de
@@ -37,10 +39,12 @@ La ventana no implementa ni reemplaza esos controles.
 
 ### Comportamiento y verificación
 
-Se abre después de `load` y del cierre del preloader existente. El cierre se
-recuerda en `sessionStorage` mediante `logistyka.welcome.dismissed`. Si el
-almacenamiento falla, sigue siendo posible cerrar la ventana; puede reaparecer
-al recargar. Sin JavaScript o soporte de `showModal`, permanece oculta y la web
+Se abre una vez por carga, después de `load` y del cierre del preloader existente.
+Al recargar vuelve a mostrarse; al cerrar o navegar por secciones permanece
+oculta durante esa carga. No lee ni escribe sessionStorage, localStorage o cookies.
+Un marcador en el elemento evita inicializaciones repetidas del script; la web
+institucional es estática y no utiliza React. Sin JavaScript o soporte de
+`showModal`, permanece oculta y la web
 institucional continúa disponible. No modifica el backend.
 
 La ventana controla el foco, Tab/Shift+Tab, Escape, el bloqueo/restablecimiento
@@ -49,6 +53,7 @@ desplazamiento interno, sin ocultar opciones; respeta movimiento reducido.
 
 Verificación local con Chrome sin interfaz: escritorio 1440×1000, tablet
 768×1024, móvil 390×844 y 320×568, horizontal 844×390; cierre por los tres medios,
-persistencia de sesión, almacenamiento bloqueado, JavaScript deshabilitado,
+reapertura tras recarga, ausencia de reaperturas por navegación o ejecución
+repetida del script, almacenamiento bloqueado, JavaScript deshabilitado,
 diálogo no soportado, foco y ausencia de overflow horizontal. Se comparan texto,
 dimensiones y estilos de las secciones originales antes y después del cierre.

@@ -680,18 +680,22 @@
     <!-- Initial access: kept outside the institutional sections. -->
     <dialog id="logistyka-welcome" class="logistyka-welcome" aria-labelledby="welcome-title" aria-describedby="welcome-intro" hidden>
         <button type="button" class="lity-close" data-welcome-close aria-label="Cerrar ventana de bienvenida">Cerrar</button>
-        <h2 id="welcome-title" class="display-1" tabindex="-1" autofocus>¿Qué deseas hacer hoy?</h2>
-        <p id="welcome-intro">Elige cómo podemos ayudarte.</p>
+        <h2 id="welcome-title" class="display-1" tabindex="-1" autofocus>¿Cómo podemos ayudarte?</h2>
+        <p id="welcome-intro">Selecciona la opción que mejor se adapte a lo que necesitas.</p>
 
         <div class="logistyka-welcome__option">
-            <a class="btn btn--primary h-full-width" href="#contact" data-welcome-contact aria-describedby="welcome-return-description">Gestionar una devolución</a>
-            <p id="welcome-return-description">Solicita o consulta la recuperación de un producto con nuestro equipo. Por ahora, la atención es asistida a través de nuestros canales de contacto.</p>
+            <a class="btn btn--primary h-full-width" href="#contact" data-welcome-contact aria-describedby="welcome-services-description">Contratar nuestros servicios</a>
+            <p id="welcome-services-description">Solicita una propuesta para tu empresa: devoluciones, recuperación de equipos y operaciones de logística inversa.</p>
         </div>
         <div class="logistyka-welcome__option">
-            <button type="button" class="btn btn--stroke h-full-width" disabled aria-describedby="welcome-portal-description">Ingresar al portal de gestión</button>
-            <p id="welcome-portal-description">Acceso para empresas, operadores y agentes de recolección. El portal está pendiente de habilitación; contacta a nuestro equipo si necesitas asistencia.</p>
+            <a class="btn btn--stroke h-full-width" href="#contact" data-welcome-contact aria-describedby="welcome-return-description">Gestionar una devolución</a>
+            <p id="welcome-return-description">Solicita una recolección o consulta una devolución asociada a una empresa cliente. Por ahora, nuestro equipo te atiende a través de los canales de contacto.</p>
         </div>
-        <button type="button" class="btn btn--stroke h-full-width" data-welcome-close>Explorar nuestra página</button>
+        <div class="logistyka-welcome__option">
+            <button type="button" class="btn btn--stroke h-full-width" disabled aria-describedby="welcome-portal-description">Ingresar a la plataforma</button>
+            <p id="welcome-portal-description">Para empresas clientes, operadores y agentes autorizados. Acceso pendiente de habilitación; nuestro equipo puede orientarte por los canales de contacto.</p>
+        </div>
+        <button type="button" class="btn btn--stroke h-full-width" data-welcome-close>Explorar Logistyka</button>
     </dialog>
 
     <!-- Java Script
@@ -699,7 +703,7 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js?v=skeleton-20260722"></script>
-    <script src="js/welcome.js?v=20261012"></script>
+    <script src="js/welcome.js?v=20261012b"></script>
 
 </body>
 

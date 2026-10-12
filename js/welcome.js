@@ -4,23 +4,13 @@
 
     const dialog = document.getElementById('logistyka-welcome');
     // Progressive enhancement: unsupported browsers retain the institutional site.
-    if (!dialog || typeof dialog.showModal !== 'function') return;
+    if (!dialog || typeof dialog.showModal !== 'function' || dialog.dataset.welcomeInitialized) return;
+    // Per-document guard: repeated script execution must not register or open twice.
+    dialog.dataset.welcomeInitialized = 'true';
 
-    const storageKey = 'logistyka.welcome.dismissed';
-    let dismissed = false;
+    let opened = false;
     let previousFocus;
     let restoreScroll;
-
-    try {
-        dismissed = window.sessionStorage.getItem(storageKey) === '1';
-    } catch (_) { /* Storage can be unavailable in privacy modes. */ }
-
-    function rememberDismissal() {
-        dismissed = true;
-        try {
-            window.sessionStorage.setItem(storageKey, '1');
-        } catch (_) { /* In-memory dismissal still works for this page. */ }
-    }
 
     function lockScroll() {
         const body = document.body;
@@ -54,12 +44,10 @@
 
     function closeWelcome() {
         if (!dialog.open) return;
-        rememberDismissal();
         dialog.close();
     }
 
     dialog.addEventListener('close', function () {
-        rememberDismissal();
         dialog.hidden = true;
         if (restoreScroll) restoreScroll();
         const target = previousFocus && previousFocus !== document.body && previousFocus.isConnected
@@ -79,10 +67,12 @@
     dialog.querySelectorAll('[data-welcome-close]').forEach(function (button) {
         button.addEventListener('click', closeWelcome);
     });
-    dialog.querySelector('[data-welcome-contact]').addEventListener('click', function (event) {
-        event.preventDefault();
-        dialog.returnValue = 'contact';
-        closeWelcome();
+    dialog.querySelectorAll('[data-welcome-contact]').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            dialog.returnValue = 'contact';
+            closeWelcome();
+        });
     });
 
     // Native dialog makes the background inert and handles Escape. Keep Tab in its controls.
@@ -101,7 +91,7 @@
     });
 
     function openWhenReady() {
-        if (dismissed || dialog.open) return;
+        if (opened || dialog.open) return;
         const preloader = document.getElementById('preloader');
         // Wait for Flare's existing loader to finish, without altering its animation.
         if (preloader && window.getComputedStyle(preloader).display !== 'none') {
@@ -109,6 +99,7 @@
             return;
         }
         previousFocus = document.activeElement;
+        opened = true;
         dialog.hidden = false;
         try {
             dialog.showModal();
