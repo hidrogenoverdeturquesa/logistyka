@@ -89,7 +89,7 @@
     <link rel="stylesheet" href="css/styles.css?v=skeleton-rojo-azul-20260722">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/logistyka.css">
-    <link rel="stylesheet" href="css/welcome.css?v=20261012">
+    <link rel="stylesheet" href="css/welcome.css?v=20261012-video">
 
     <!-- script
     ================================================== -->
@@ -679,7 +679,12 @@
 
     <!-- Initial access: kept outside the institutional sections. -->
     <dialog id="logistyka-welcome" class="logistyka-welcome" aria-labelledby="welcome-title" aria-describedby="welcome-intro" hidden>
+      <div class="logistyka-welcome__surface">
+        <div class="logistyka-welcome__media" aria-hidden="true">
+            <video id="welcome-video" muted loop playsinline preload="none" poster="videos/recogida-paquetes.jpg" data-src="videos/recogida-paquetes.mp4" tabindex="-1" disablepictureinpicture></video>
+        </div>
         <button type="button" class="lity-close" data-welcome-close aria-label="Cerrar ventana de bienvenida">Cerrar</button>
+        <button type="button" class="btn btn--small logistyka-welcome__video-toggle" data-welcome-video-toggle aria-controls="welcome-video" hidden>Reproducir video</button>
         <h2 id="welcome-title" class="display-1" tabindex="-1" autofocus>¿Cómo podemos ayudarte?</h2>
         <p id="welcome-intro">Selecciona la opción que mejor se adapte a lo que necesitas.</p>
 
@@ -696,6 +701,7 @@
             <p id="welcome-portal-description">Para empresas clientes, operadores y agentes autorizados. Acceso pendiente de habilitación; nuestro equipo puede orientarte por los canales de contacto.</p>
         </div>
         <button type="button" class="btn btn--stroke h-full-width" data-welcome-close>Explorar Logistyka</button>
+      </div>
     </dialog>
 
     <!-- Java Script
@@ -703,7 +709,7 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js?v=skeleton-20260722"></script>
-    <script src="js/welcome.js?v=20261012b"></script>
+    <script src="js/welcome.js?v=20261012-video"></script>
 
 </body>
 

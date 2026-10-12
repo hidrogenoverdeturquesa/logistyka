@@ -12,6 +12,54 @@
     let previousFocus;
     let restoreScroll;
 
+    const video = dialog.querySelector('video');
+    const videoToggle = dialog.querySelector('[data-welcome-video-toggle]');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let videoPausedByUser = false;
+
+    function updateVideoLabel() {
+        videoToggle.textContent = video.paused ? 'Reproducir video' : 'Pausar video';
+    }
+
+    function playVideo() {
+        if (!video || !dialog.open || document.hidden) return;
+        // Fetch media only when needed; the poster remains if autoplay is unavailable.
+        if (!video.getAttribute('src')) video.src = video.dataset.src;
+        video.muted = true;
+        const playback = video.play();
+        if (playback) playback.then(function () {
+            if (!dialog.open || document.hidden) video.pause();
+        }).catch(updateVideoLabel);
+    }
+
+    function syncVideo() {
+        if (!video) return;
+        if (!dialog.open || document.hidden || reducedMotion.matches ||
+            (navigator.connection && navigator.connection.saveData) || videoPausedByUser) {
+            video.pause();
+        } else {
+            playVideo();
+        }
+    }
+
+    if (video && videoToggle) {
+        videoToggle.hidden = false;
+        video.addEventListener('play', updateVideoLabel);
+        video.addEventListener('pause', updateVideoLabel);
+        video.addEventListener('error', function () {
+            video.hidden = true;
+            videoToggle.hidden = true;
+        });
+        videoToggle.addEventListener('click', function () {
+            videoPausedByUser = !video.paused;
+            if (videoPausedByUser) video.pause();
+            else playVideo();
+        });
+        document.addEventListener('visibilitychange', syncVideo);
+        window.addEventListener('pagehide', function () { video.pause(); });
+        if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncVideo);
+    }
+
     function lockScroll() {
         const body = document.body;
         const root = document.documentElement;
@@ -48,6 +96,7 @@
     }
 
     dialog.addEventListener('close', function () {
+        if (video) video.pause();
         dialog.hidden = true;
         if (restoreScroll) restoreScroll();
         const target = previousFocus && previousFocus !== document.body && previousFocus.isConnected
@@ -78,7 +127,7 @@
     // Native dialog makes the background inert and handles Escape. Keep Tab in its controls.
     dialog.addEventListener('keydown', function (event) {
         if (event.key !== 'Tab') return;
-        const controls = Array.from(dialog.querySelectorAll('a[href], button:not([disabled])'));
+        const controls = Array.from(dialog.querySelectorAll('a[href], button:not([disabled]):not([hidden])'));
         const first = controls[0];
         const last = controls[controls.length - 1];
         if (event.shiftKey && (document.activeElement === first || !controls.includes(document.activeElement))) {
@@ -105,6 +154,7 @@
             dialog.showModal();
             lockScroll();
             document.getElementById('welcome-title').focus({ preventScroll: true });
+            syncVideo();
         } catch (_) {
             if (restoreScroll) restoreScroll();
             dialog.hidden = true;

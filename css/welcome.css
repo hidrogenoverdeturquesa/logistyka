@@ -6,13 +6,42 @@
     max-height: calc(100vh - var(--vspace-1));
     max-height: calc(100dvh - var(--vspace-1));
     margin: auto;
-    padding: var(--vspace-2);
+    padding: 0;
     border: 1px solid var(--color-border);
     border-radius: 0;
     background: var(--color-bg);
-    color: var(--color-gray-5);
+    color: var(--color-gray-2);
     overflow-y: auto;
     overscroll-behavior: contain;
+}
+
+.logistyka-welcome__surface {
+    position: relative;
+    isolation: isolate;
+    padding: var(--vspace-2);
+}
+
+.logistyka-welcome__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: url('../videos/recogida-paquetes.jpg') 60% center / cover;
+}
+
+.logistyka-welcome__media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 60% center;
+}
+
+.logistyka-welcome__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .66);
 }
 
 .logistyka-welcome[hidden],
@@ -66,8 +95,23 @@
     justify-content: center;
 }
 
-.logistyka-welcome > .btn:last-child {
+.logistyka-welcome__surface > .btn:last-child {
     margin-bottom: 0;
+}
+
+.logistyka-welcome .logistyka-welcome__video-toggle {
+    position: absolute;
+    top: var(--vspace-0_5);
+    right: var(--vspace-2);
+    min-height: 42px;
+    padding: 0 var(--vspace-0_25);
+    margin: 0;
+    font-size: var(--text-xs);
+    letter-spacing: .1em;
+}
+
+.logistyka-welcome [hidden] {
+    display: none;
 }
 
 .logistyka-welcome .btn:disabled {
@@ -99,7 +143,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .logistyka-welcome {
+    .logistyka-welcome__surface {
         padding: var(--vspace-2) var(--vspace-0_75) var(--vspace-0_75);
     }
 
