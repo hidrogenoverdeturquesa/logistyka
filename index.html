@@ -89,6 +89,7 @@
     <link rel="stylesheet" href="css/styles.css?v=skeleton-rojo-azul-20260722">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/logistyka.css">
+    <link rel="stylesheet" href="css/welcome.css?v=20261012">
 
     <!-- script
     ================================================== -->
@@ -676,11 +677,29 @@
     </div> <!-- end photoSwipe background -->
 
 
+    <!-- Initial access: kept outside the institutional sections. -->
+    <dialog id="logistyka-welcome" class="logistyka-welcome" aria-labelledby="welcome-title" aria-describedby="welcome-intro" hidden>
+        <button type="button" class="lity-close" data-welcome-close aria-label="Cerrar ventana de bienvenida">Cerrar</button>
+        <h2 id="welcome-title" class="display-1" tabindex="-1" autofocus>¿Qué deseas hacer hoy?</h2>
+        <p id="welcome-intro">Elige cómo podemos ayudarte.</p>
+
+        <div class="logistyka-welcome__option">
+            <a class="btn btn--primary h-full-width" href="#contact" data-welcome-contact aria-describedby="welcome-return-description">Gestionar una devolución</a>
+            <p id="welcome-return-description">Solicita o consulta la recuperación de un producto con nuestro equipo. Por ahora, la atención es asistida a través de nuestros canales de contacto.</p>
+        </div>
+        <div class="logistyka-welcome__option">
+            <button type="button" class="btn btn--stroke h-full-width" disabled aria-describedby="welcome-portal-description">Ingresar al portal de gestión</button>
+            <p id="welcome-portal-description">Acceso para empresas, operadores y agentes de recolección. El portal está pendiente de habilitación; contacta a nuestro equipo si necesitas asistencia.</p>
+        </div>
+        <button type="button" class="btn btn--stroke h-full-width" data-welcome-close>Explorar nuestra página</button>
+    </dialog>
+
     <!-- Java Script
     ================================================== -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js?v=skeleton-20260722"></script>
+    <script src="js/welcome.js?v=20261012"></script>
 
 </body>
 

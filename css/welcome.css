@@ -1,0 +1,115 @@
+/* Flare tokens, rectangular buttons and Lity close control; scoped to this dialog. */
+.logistyka-welcome {
+    box-sizing: border-box;
+    width: calc(100% - var(--vspace-1));
+    max-width: var(--width-narrower);
+    max-height: calc(100vh - var(--vspace-1));
+    max-height: calc(100dvh - var(--vspace-1));
+    margin: auto;
+    padding: var(--vspace-2);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    background: var(--color-bg);
+    color: var(--color-gray-5);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.logistyka-welcome[hidden],
+.logistyka-welcome:not([open]) {
+    display: none;
+}
+
+.logistyka-welcome::backdrop {
+    /* Same neutral overlay as Flare's PhotoSwipe. */
+    background: rgba(0, 0, 0, .8);
+}
+
+.logistyka-welcome[open] {
+    animation: logistyka-welcome-in .3s ease;
+}
+
+.logistyka-welcome .lity-close {
+    position: absolute;
+    margin: 0;
+}
+
+.logistyka-welcome .display-1 {
+    margin-bottom: var(--vspace-0_5);
+}
+
+.logistyka-welcome__option {
+    padding-bottom: var(--vspace-0_75);
+    margin-bottom: var(--vspace-0_75);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.logistyka-welcome p {
+    margin-bottom: var(--vspace-0_75);
+    font-size: var(--text-sm);
+    line-height: var(--vspace-0_75);
+}
+
+.logistyka-welcome__option p {
+    margin-bottom: 0;
+}
+
+.logistyka-welcome .btn {
+    height: auto;
+    min-height: var(--btn-height);
+    padding: var(--vspace-0_5);
+    margin-right: 0;
+    white-space: normal;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logistyka-welcome > .btn:last-child {
+    margin-bottom: 0;
+}
+
+.logistyka-welcome .btn:disabled {
+    color: var(--color-gray-6);
+    border-color: var(--color-gray-12);
+    background: transparent !important;
+    cursor: not-allowed;
+}
+
+/* Flare's stroke rule covers hover only; retain the same treatment for keyboard focus. */
+.logistyka-welcome .btn--stroke:focus:not(:disabled) {
+    background: var(--color-btn-stroke-hover) !important;
+    border-color: var(--color-btn-stroke-hover);
+    color: var(--color-btn-stroke-hover-text);
+}
+
+.logistyka-welcome :focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 4px;
+}
+
+.logistyka-welcome #welcome-title:focus {
+    outline: none;
+}
+
+@keyframes logistyka-welcome-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media screen and (max-width: 600px) {
+    .logistyka-welcome {
+        padding: var(--vspace-2) var(--vspace-0_75) var(--vspace-0_75);
+    }
+
+    .logistyka-welcome .display-1 {
+        font-size: var(--text-xl);
+        line-height: var(--vspace-1_25);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logistyka-welcome[open] { animation: none; }
+    .logistyka-welcome .btn { transition: none; }
+}
