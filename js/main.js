@@ -118,8 +118,8 @@
 
         $headerContent.find('.s-header__nav a, .btn').on("click", function() {
 
-            // at 900px and below
-            if (window.matchMedia('(max-width: 900px)').matches) {
+            // at 1200px and below
+            if (window.matchMedia('(max-width: 1200px)').matches) {
                 $toggleButton.toggleClass('is-clicked');
                 $siteBody.toggleClass('menu-is-open');
             }
@@ -127,8 +127,8 @@
 
         $WIN.on('resize', function() {
 
-            // above 900px
-            if (window.matchMedia('(min-width: 901px)').matches) {
+            // above 1200px
+            if (window.matchMedia('(min-width: 1201px)').matches) {
                 if ($siteBody.hasClass("menu-is-open")) $siteBody.removeClass("menu-is-open");
                 if ($toggleButton.hasClass("is-clicked")) $toggleButton.removeClass("is-clicked");
             }

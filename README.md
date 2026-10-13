@@ -4,6 +4,29 @@ Movilidad logística, trazabilidad y logística inversa para cadenas circulares 
 
 Sitio estático basado en la plantilla Flare de StyleShout.
 
+## Propuesta cromática y acceso central HVT — 13 de octubre de 2026
+
+**Publicación autorizada por el usuario después de la revisión visual y la corrección del acceso duplicado.**
+Sitio público: https://logistyka.hidrogenoverdeturquesa.com/.
+
+Se añadieron accesos «INICIAR SESIÓN» al encabezado, inmediatamente antes de
+Contacto, y a la bienvenida. Ambos llevan a
+`https://cuenta.hidrogenoverdeturquesa.com`. La bienvenida tiene cuatro acciones:
+contratar, gestionar devolución, iniciar sesión y explorar. El acceso anterior
+«Ingresar a la plataforma» se unificó en «INICIAR SESIÓN», sin duplicados ni
+mensajes de acceso pendiente. No se desarrolla una autenticación adicional.
+
+`css/identity.css` centraliza la paleta aprobada y la conecta con las variables
+de Flare. No cambia tipografías, textos institucionales, imágenes, videos,
+secciones ni su distribución. El menú existente pasa a su presentación móvil
+a 1200 px para acomodar los dos accesos. Los cambios en `styles.css` son los
+colores del preloader y ese breakpoint; `main.js` conserva el mismo comportamiento
+con el breakpoint correspondiente. `js/welcome.js` permanece intacto.
+
+Referencia recuperable: etiqueta Git `review-before-palette-20261013`, commit
+`c93214b`. Los originales gráficos y archivos no rastreados previos se preservan.
+Detalles, contraste, archivos y verificaciones: [docs/VISUAL_REVIEW.md](docs/VISUAL_REVIEW.md).
+
 ## Ventana inicial de acceso
 
 La página incorpora una ventana de bienvenida independiente de las secciones
@@ -16,16 +39,15 @@ Se reutilizan los tokens de Flare (`--font-*`, `--color-*`, `--vspace-*`,
 El diálogo nativo aporta el fondo inerte y el cierre con Escape sin dependencias
 adicionales. La transición de entrada conserva los 0,3 segundos de Flare/Lity.
 
-### Destinos y estado funcional (12 de octubre de 2026)
+### Destinos y estado funcional (propuesta local del 13 de octubre de 2026)
 
 - **Contratar nuestros servicios:** `#contact`, contacto comercial existente
   para solicitar una propuesta empresarial.
 - **Gestionar una devolución:** `#contact`, sección existente de la página.
   Ofrece atención asistida mediante los canales ya publicados. No se ha
   encontrado un formulario público de solicitud ni seguimiento autónomo.
-- **Ingresar a la plataforma:** deshabilitado con explicación visible,
-  a la espera de verificar la URL de producción que aportará el responsable.
-  No se enlazan módulos privados ni el prototipo local.
+- **INICIAR SESIÓN:** acceso único a `https://cuenta.hidrogenoverdeturquesa.com`.
+  HVT administra la identidad y el portal aplica los permisos de cada cuenta.
 - **Explorar Logistyka / cerrar / Escape:** cierran el diálogo y conservan
   la página institucional.
 

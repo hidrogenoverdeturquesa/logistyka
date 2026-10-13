@@ -1,0 +1,200 @@
+/* Approved Logistyka palette. Color layer over Flare; its type, grid and media stay intact. */
+:root {
+    --lk-white: #FFFFFF;
+    --lk-deep: #01666B;
+    --lk-turquoise: #028E94;
+    --lk-botanical: #0E8C70;
+    --lk-gold: #E6D357;
+    --lk-terracotta: #C96F4A;
+    --lk-ink: #212727;
+    --lk-deep-rgb: 1, 102, 107;
+    --lk-white-rgb: 255, 255, 255;
+    --lk-ink-rgb: 33, 39, 39;
+    --lk-line: rgba(var(--lk-deep-rgb), .25);
+    --lk-line-inverse: rgba(var(--lk-white-rgb), .55);
+    --lk-soft: rgba(var(--lk-deep-rgb), .08);
+    --lk-shimmer: rgba(var(--lk-deep-rgb), .16);
+    --lk-skeleton: rgba(var(--lk-deep-rgb), .14);
+    --lk-skeleton-image: rgba(var(--lk-deep-rgb), .24);
+    --lk-shadow: rgba(var(--lk-deep-rgb), .16);
+    --lk-video-veil: rgba(var(--lk-white-rgb), .90);
+    --lk-backdrop: rgba(var(--lk-deep-rgb), .75);
+    --lk-hero-veil-start: rgba(var(--lk-deep-rgb), .81);
+    --lk-hero-veil-end: rgba(var(--lk-deep-rgb), .81);
+
+    /* Compatibility with the existing Flare components. Small text uses deep teal,
+       not turquoise/botanical on white (those pairs do not reach 4.5:1). */
+    --color-1: var(--lk-deep);
+    --color-1-lighter: var(--lk-turquoise);
+    --color-1-light: var(--lk-deep);
+    --color-1-dark: var(--lk-deep);
+    --color-1-darker: var(--lk-botanical);
+    --color-2: var(--lk-botanical);
+    --color-2-lighter: var(--lk-turquoise);
+    --color-2-light: var(--lk-botanical);
+    --color-2-dark: var(--lk-deep);
+    --color-2-darker: var(--lk-deep);
+    --color-3: var(--lk-gold);
+    --color-white: var(--lk-white);
+    --color-black: var(--lk-ink);
+    --color-text: var(--lk-ink);
+    --color-text-dark: var(--lk-deep);
+    --color-text-light: var(--lk-deep);
+    --color-placeholder: var(--lk-deep);
+    --color-body: var(--lk-white);
+    --color-bg: var(--lk-white);
+    --color-border: var(--lk-line);
+    --color-btn: var(--lk-deep);
+    --color-btn-text: var(--lk-white);
+    --color-btn-hover: var(--lk-ink);
+    --color-btn-hover-text: var(--lk-white);
+    --color-btn-primary: var(--lk-deep);
+    --color-btn-primary-text: var(--lk-white);
+    --color-btn-primary-hover: var(--lk-ink);
+    --color-btn-primary-hover-text: var(--lk-white);
+    --color-btn-stroke: var(--lk-deep);
+    --color-btn-stroke-text: var(--lk-deep);
+    --color-btn-stroke-hover: var(--lk-deep);
+    --color-btn-stroke-hover-text: var(--lk-white);
+}
+
+::selection { background: var(--lk-gold); color: var(--lk-ink); }
+a:hover, a:focus { color: var(--lk-deep); }
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--lk-deep);
+    outline-offset: 4px;
+}
+.btn--stroke:focus-visible:not(:disabled) {
+    background: var(--color-btn-stroke-hover) !important;
+    border-color: var(--color-btn-stroke-hover);
+    color: var(--color-btn-stroke-hover-text);
+}
+
+/* Same header anchors and contact location. The new action sits to its left. */
+.s-header, .s-header.sticky { background-color: var(--lk-deep); }
+.s-header { --color-btn-stroke: var(--lk-white); --color-btn-stroke-text: var(--lk-white); }
+.s-header__nav a, .s-header__nav a:visited { color: var(--lk-white); }
+.s-header__nav a:hover, .s-header__nav a:focus { color: var(--lk-white) !important; text-decoration: underline; text-decoration-color: var(--lk-gold); text-underline-offset: .4em; }
+.s-header__actions {
+    position: absolute;
+    top: 50%;
+    right: 10rem;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+.s-header__actions .btn { position: static; }
+.s-header__actions .btn--primary { background: var(--lk-white); border-color: var(--lk-white); color: var(--lk-deep); }
+.s-header__actions .btn svg path { fill: currentColor; }
+.s-header .s-header__content .btn:hover,
+.s-header .s-header__content .btn:focus {
+    background-color: var(--lk-gold) !important;
+    border-color: var(--lk-gold) !important;
+    color: var(--lk-ink);
+}
+.s-header .s-header__content .btn:hover svg path,
+.s-header .s-header__content .btn:focus svg path { fill: currentColor; }
+.s-header a:focus-visible { outline-color: var(--lk-gold); }
+.logistyka-logo:hover, .logistyka-logo:focus { color: var(--lk-white); }
+
+/* Existing cover, image placement, gradients and animation; color changes only. */
+.s-hero { background-color: var(--lk-deep); }
+.s-hero__bg {
+    background-image: linear-gradient(90deg, var(--lk-hero-veil-start), var(--lk-hero-veil-end)), url('../images/Portada.jpg');
+}
+.s-hero__bg::after { background: var(--lk-deep); }
+.s-hero__bg .gradient-overlay { background: linear-gradient(180deg, var(--lk-deep) 10%, transparent 100%); }
+.s-hero__content h1 { color: var(--lk-white); }
+.s-hero__content-about::before { background-color: var(--lk-line-inverse); }
+.s-hero__content-social a:hover, .s-hero__content-social a:focus { color: var(--lk-gold); }
+.s-hero__video-link { background-color: var(--lk-white); }
+.s-hero__video svg path { fill: var(--lk-deep); }
+.s-hero__video-link:hover, .s-hero__video-link:focus { background-color: var(--lk-gold); }
+.s-hero a:focus-visible { outline-color: var(--lk-gold); }
+.s-hero__scroll-link, .s-hero__scroll-link:hover, .s-hero__scroll-link:focus { color: var(--lk-white); }
+
+/* Reuse the exact decorative SVG silhouettes; no source image or logo is edited. */
+.s-hero__content h1::before, .s-about::before {
+    background-image: none;
+    background-color: var(--lk-terracotta);
+    -webkit-mask: url('../images/dots.svg') repeat;
+    mask: url('../images/dots.svg') repeat;
+}
+.s-about .horizontal-line::before { background-color: var(--lk-botanical); }
+.s-about__process h3::before { color: var(--lk-white); background-color: var(--lk-deep); }
+.section-title::before { color: var(--lk-deep); }
+.service-icon {
+    background-image: none;
+    background-color: var(--lk-botanical);
+    -webkit-mask: var(--lk-service-icon) center / contain no-repeat;
+    mask: var(--lk-service-icon) center / contain no-repeat;
+}
+.service-icon--product-design { --lk-service-icon: url('../images/icons/services/icon-product-design.svg'); }
+.service-icon--branding { --lk-service-icon: url('../images/icons/services/icon-branding.svg'); }
+.service-icon--frontend { --lk-service-icon: url('../images/icons/services/icon-frontend.svg'); }
+.service-icon--research { --lk-service-icon: url('../images/icons/services/icon-research.svg'); }
+.service-icon--illustration { --lk-service-icon: url('../images/icons/services/icon-illustration.svg'); }
+.service-icon--ecommerce { --lk-service-icon: url('../images/icons/services/icon-ecommerce.svg'); }
+.item-service:nth-child(even) .service-icon { background-color: var(--lk-turquoise); }
+.folio-item__thumb a::before { background: rgba(var(--lk-deep-rgb), .95); }
+.folio-item__cat, .folio-item__title { color: var(--lk-white); }
+.folio-item__project-link { border-color: var(--lk-line-inverse); }
+.folio-item__project-link::before { background-color: var(--lk-line-inverse); }
+.folio-item__project-link:hover, .folio-item__project-link:focus { color: var(--lk-deep); background: var(--lk-white); }
+
+.s-clients, .testimonials { background-color: var(--lk-deep); color: var(--lk-white); }
+.s-clients { --color-text-dark: var(--lk-white); --color-text-light: var(--lk-white); }
+.s-clients .section-title h3, .s-clients .section-title::before { color: var(--lk-white); }
+.testimonial-slider__cite strong { color: var(--lk-white); }
+.testimonial-slider__cite span, .testimonial-slider p { color: var(--lk-white); }
+.s-clients .slick-dots li button { background: var(--lk-white); }
+.s-clients .slick-dots .slick-active button { background: var(--lk-gold); }
+.testimonials .slick-arrow { opacity: 1; }
+.s-clients a:focus-visible, .s-clients button:focus-visible { outline-color: var(--lk-gold); }
+
+.s-contact { background-color: var(--lk-deep); color: var(--lk-white); --color-text-dark: var(--lk-white); }
+.s-contact__top .h6 { color: var(--lk-white); }
+.s-contact a, .s-contact a:hover, .s-contact a:focus { color: var(--lk-white); }
+.s-contact a:focus-visible { outline-color: var(--lk-gold); }
+.logistyka-contact-mail a { border-color: var(--lk-line-inverse); }
+.s-footer { background: var(--lk-white); color: var(--lk-ink); }
+.s-footer a, .s-footer .h6 { color: var(--lk-deep); }
+.s-footer a:hover, .s-footer a:focus { color: var(--lk-deep); }
+.s-footer__block--end::before { background-color: var(--lk-line); }
+.s-footer__block--end .btn { background: var(--lk-deep); border-color: var(--lk-deep); color: var(--lk-white); }
+.s-footer__block--end .btn:hover, .s-footer__block--end .btn:focus { background: var(--lk-ink); border-color: var(--lk-ink); color: var(--lk-white); }
+.ss-copyright span:last-child, .ss-copyright span:last-child a { color: var(--lk-ink); }
+.ss-copyright a, .ss-copyright a:hover, .ss-copyright a:focus { border-color: var(--lk-deep); }
+.ss-copyright span::after { color: var(--lk-ink); }
+.ss-go-top a { background-color: var(--lk-deep) !important; }
+
+/* A white veil keeps the existing moving package video and readable text in every frame. */
+.logistyka-welcome { color: var(--lk-ink); border-color: var(--lk-deep); }
+.logistyka-welcome__media::after { background: var(--lk-video-veil); }
+.logistyka-welcome::backdrop { background: var(--lk-backdrop); }
+.logistyka-welcome .lity-close { color: var(--lk-deep); text-shadow: none; }
+.logistyka-welcome .lity-close::before, .logistyka-welcome .lity-close::after { background-color: var(--lk-deep); }
+.lity .lity-close::before, .lity .lity-close::after { background-color: var(--lk-white); }
+.lity .lity-close:focus-visible { outline: 2px solid var(--lk-white); outline-offset: 4px; }
+.logistyka-welcome .lity-close:hover, .logistyka-welcome .lity-close:focus { color: var(--lk-ink); }
+.logistyka-welcome .btn:disabled { color: var(--lk-ink); border-color: var(--lk-line); }
+.logistyka-welcome :focus-visible { outline-color: var(--lk-deep); }
+
+@media screen and (max-width: 1700px) {
+    .s-header__actions { right: 6rem; }
+}
+@media screen and (min-width: 1201px) {
+    .s-header__actions .btn { transform: none; }
+}
+/* The existing mobile menu starts earlier to accommodate both actions without overlap. */
+@media screen and (max-width: 1200px) {
+    .s-header__content { background-color: var(--lk-deep); max-height: 100vh; max-height: 100dvh; overflow-y: auto; }
+    .s-header__actions { position: static; transform: none; flex-wrap: wrap; }
+    .s-header__actions .btn { flex: 1 1 18rem; }
+    .s-header__nav li, .s-header__nav li:last-child { border-color: var(--lk-line-inverse); }
+}
+@media screen and (max-width: 600px) {
+    .s-header__actions { display: block; }
+    .s-header__actions .btn + .btn { margin-top: var(--vspace-0_5); }
+}

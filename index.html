@@ -28,7 +28,7 @@
     <meta name="twitter:title" content="Logistyka | Logística inversa y trazabilidad">
     <meta name="twitter:description" content="Movilidad logística, logística inversa y trazabilidad para cadenas circulares inteligentes y sostenibles.">
     <meta name="twitter:image" content="https://logistyka.hidrogenoverdeturquesa.com/images/Portada.jpg">
-    <meta name="theme-color" content="#080f1c">
+    <meta name="theme-color" content="#01666B">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -86,10 +86,11 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/styles.css?v=skeleton-rojo-azul-20260722">
+    <link rel="stylesheet" href="css/styles.css?v=palette-20261013">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/logistyka.css">
     <link rel="stylesheet" href="css/welcome.css?v=20261012-video">
+    <link rel="stylesheet" href="css/identity.css?v=20261013-review">
 
     <!-- script
     ================================================== -->
@@ -140,10 +141,13 @@
                 </ul>
             </nav> <!-- end s-header__nav-wrap -->
 
+            <div class="s-header__actions">
+            <a href="https://cuenta.hidrogenoverdeturquesa.com" class="btn btn--stroke btn--small logistyka-sign-in">INICIAR SESIÓN</a>
             <a href="https://wa.me/573118645518?text=Hola,%20quiero%20saber%20mas%20sobre%20Logistyka" class="btn btn--primary btn--small">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
                 Contacto
             </a>
+            </div>
 
         </div> <!-- end header-content -->
 
@@ -697,8 +701,8 @@
             <p id="welcome-return-description">Solicita una recolección o consulta una devolución asociada a una empresa cliente. Por ahora, nuestro equipo te atiende a través de los canales de contacto.</p>
         </div>
         <div class="logistyka-welcome__option">
-            <button type="button" class="btn btn--stroke h-full-width" disabled aria-describedby="welcome-portal-description">Ingresar a la plataforma</button>
-            <p id="welcome-portal-description">Para empresas clientes, operadores y agentes autorizados. Acceso pendiente de habilitación; nuestro equipo puede orientarte por los canales de contacto.</p>
+            <a class="btn btn--primary h-full-width logistyka-sign-in" href="https://cuenta.hidrogenoverdeturquesa.com" aria-describedby="welcome-portal-description">INICIAR SESIÓN</a>
+            <p id="welcome-portal-description">Accede a Logistyka con tu cuenta HVT. Las herramientas disponibles dependen de los permisos de tu cuenta.</p>
         </div>
         <button type="button" class="btn btn--stroke h-full-width" data-welcome-close>Explorar Logistyka</button>
       </div>
@@ -708,7 +712,7 @@
     ================================================== -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
-    <script src="js/main.js?v=skeleton-20260722"></script>
+    <script src="js/main.js?v=palette-20261013"></script>
     <script src="js/welcome.js?v=20261012-video"></script>
 
 </body>
